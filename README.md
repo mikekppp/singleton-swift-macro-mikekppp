@@ -1,4 +1,4 @@
-# ⚙️ Sigleton Macro for Swift classes
+# ⚙️ Singleton Macro for Swift classes
 
 This repository contains a simple implementation of a swift macro that allows you to create singletons in a more concise way.
 

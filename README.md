@@ -5,7 +5,7 @@ This repository contains a simple implementation of a swift macro that allows yo
 ## Usage:
 
 1. Add a package dependecy to your project
-2. In order to apply a macro use `@Singleton` annotation before the class definition. Like this:
+2. Insert the `@Singleton` annotation before the class you wish to define as a singleton:
 
 ```swift
 import Singleton
@@ -31,4 +31,28 @@ class MyClass {
 }
 ```
 
-4. Thus making a `MyClass.shared` instance of the class available out of the box.
+4. Now you may call `MyClass.shared` without having to add boilerplate to your singleton classes.
+5. The macro can also be applied to Structs:
+
+```swift
+import Singleton
+
+@Singleton
+struct MyStruct {
+    // struct contents...
+}
+```
+6. Which will expand to this:
+
+```swift
+import Singleton
+
+struct MyStruct {
+
+    static let shared = MyStruct()
+
+    private init() {
+    }
+}
+```
+

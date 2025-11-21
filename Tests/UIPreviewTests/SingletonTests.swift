@@ -11,7 +11,7 @@ let testMacros: [String: Macro.Type] = [
 
 final class SingletonTests: XCTestCase {
 
-    func testSingletonMacro() throws {
+	func testSingletonClass() throws {
         assertMacroExpansion(
             """
             @Singleton
@@ -24,6 +24,28 @@ final class SingletonTests: XCTestCase {
             final class MyClass {
 
                 static let shared = MyClass()
+
+                private init() {
+                }
+            }
+            """,
+            macros: testMacros
+        )
+    }
+
+	func testSingletonStruct() throws {
+		assertMacroExpansion(
+            """
+            @Singleton
+            final struct MyStruct {
+            }
+            """,
+            expandedSource:
+            """
+
+            final struct MyStruct {
+
+                static let shared = MyStruct()
 
                 private init() {
                 }

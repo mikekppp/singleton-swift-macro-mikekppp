@@ -14,12 +14,21 @@ public struct SingletonMacro: MemberMacro {
 	) throws -> [DeclSyntax] {
 		let ownerName: TokenSyntax
 
-		if let owner = declaration.as(ClassDeclSyntax.self) {
+		if let owner = declaration.as(ClassDeclSyntax.self)
+		{
 			ownerName = owner.name
-		} else if let owner = declaration.as(StructDeclSyntax.self) {
+		}
+		else if let owner = declaration.as(StructDeclSyntax.self)
+		{
 			ownerName = owner.name
-		} else {
-			fatalError("The @Singleton macro can only be applied to 'class' and 'struct' declarations")
+		}
+		else if let owner = declaration.as(ActorDeclSyntax.self)
+		{
+			ownerName = owner.name
+		}
+		else
+		{
+			fatalError("The @Singleton macro can only be applied to 'class', 'struct', and 'actor' declarations")
 		}
 
 		let variable = try VariableDeclSyntax("static let shared = \(ownerName.trimmed)()")
@@ -30,7 +39,5 @@ public struct SingletonMacro: MemberMacro {
 
 @main
 struct SingletonPlugin: CompilerPlugin {
-	let providingMacros: [Macro.Type] = [
-		SingletonMacro.self,
-	]
+	let providingMacros: [Macro.Type] = [SingletonMacro.self,]
 }

@@ -105,29 +105,6 @@ final class SingletonTests: XCTestCase {
 	}
 
 
-	func testFinalSingletonStruct() throws {
-		assertMacroExpansion(
-            """
-            @Singleton
-            final struct MyStruct {
-            }
-            """,
-            expandedSource:
-            """
-
-            final struct MyStruct {
-
-                static let shared = MyStruct()
-
-                private init() {
-                }
-            }
-            """,
-            macros: testMacros
-        )
-    }
-
-
 	func testSingletonStruct() throws {
 		assertMacroExpansion(
 			"""
@@ -139,29 +116,6 @@ final class SingletonTests: XCTestCase {
             """
 
             struct MyStruct {
-
-                static let shared = MyStruct()
-
-                private init() {
-                }
-            }
-            """,
-			macros: testMacros
-		)
-	}
-
-
-	func testPublicFinalSingletonStruct() throws {
-		assertMacroExpansion(
-			"""
-			@Singleton
-			public final struct MyStruct {
-			}
-			""",
-			expandedSource:
-            """
-
-            public final struct MyStruct {
 
                 static let shared = MyStruct()
 

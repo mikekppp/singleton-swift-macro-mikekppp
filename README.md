@@ -32,7 +32,7 @@ class MyClass {
 ```
 
 4. Now you may call `MyClass.shared` without having to add boilerplate to your singleton classes.
-5. The macro can also be applied to Structs:
+5. The macro can also be applied to structs:
 
 ```swift
 import Singleton
@@ -55,4 +55,26 @@ struct MyStruct {
     }
 }
 ```
+7. The macro can also be applied to actors:
 
+```swift
+import Singleton
+
+@Singleton
+actor MyActor {
+    // actor contents...
+}
+```
+8. Which will expand to this:
+
+```swift
+import Singleton
+
+actor MyActor {
+
+    static let shared = MyActor()
+
+    private init() {
+    }
+}
+```

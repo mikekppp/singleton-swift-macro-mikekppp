@@ -28,6 +28,7 @@ final class SingletonTests: XCTestCase {
                 static let shared = MyClass()
 
                 private init() {
+                    privateInit()
                 }
             }
             """,
@@ -51,6 +52,7 @@ final class SingletonTests: XCTestCase {
                 static let shared = MyClass()
 
                 private init() {
+                    privateInit()
                 }
             }
             """,
@@ -74,6 +76,7 @@ final class SingletonTests: XCTestCase {
                 static let shared = MyClass()
 
                 private init() {
+                    privateInit()
                 }
             }
             """,
@@ -97,6 +100,7 @@ final class SingletonTests: XCTestCase {
                 static let shared = MyClass()
 
                 private init() {
+                    privateInit()
                 }
             }
             """,
@@ -120,6 +124,7 @@ final class SingletonTests: XCTestCase {
                 static let shared = MyStruct()
 
                 private init() {
+                    privateInit()
                 }
             }
             """,
@@ -143,6 +148,7 @@ final class SingletonTests: XCTestCase {
                 static let shared = MyStruct()
 
                 private init() {
+                    privateInit()
                 }
             }
             """,
@@ -166,6 +172,7 @@ final class SingletonTests: XCTestCase {
                 static let shared = MyActor()
 
                 private init() {
+                    privateInit()
                 }
             }
             """,
@@ -189,6 +196,7 @@ final class SingletonTests: XCTestCase {
                 static let shared = MyActor()
 
                 private init() {
+                    privateInit()
                 }
             }
             """,
@@ -212,6 +220,7 @@ final class SingletonTests: XCTestCase {
                 static let shared = MyActor()
 
                 private init() {
+                    privateInit()
                 }
             }
             """,
@@ -234,6 +243,7 @@ final class SingletonTests: XCTestCase {
                 static let shared = MyActor()
 
                 private init() {
+                    privateInit()
                 }
             }
             """,

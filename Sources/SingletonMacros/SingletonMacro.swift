@@ -32,7 +32,7 @@ public struct SingletonMacro: MemberMacro {
 		}
 
 		let variable = try VariableDeclSyntax("static let shared = \(ownerName.trimmed)()")
-		let initializer = try InitializerDeclSyntax("private init()") { }
+		let initializer = try InitializerDeclSyntax("private init()") { "privateInit()" }
 		return [DeclSyntax(variable), DeclSyntax(initializer)]
 	}
 }

@@ -1,6 +1,6 @@
 # ⚙️ Singleton Macro for Swift classes
 
-The [singleton-swift-macro-mikekppp](https://github.com/mikekppp/singleton-swift-macro-mikekppp) Swift Macro provides an easy way to create Singletons in a Swift package or Xcode project.  Placing a `@Singleton` attribute on your Class, Struct, or Actor will imbue the characteristics of a classic Singleton on that object.  In addition, your Class, Struct, or Actor may need additional initialization when first instantiated.  For that reason, this macro also makes a call to a `privateInit()` method from within the "standard Swift Singleton" `private init()` template to allow for one time initialization of your Singleton.  See below for details on how this macro expands.
+The [singleton-swift-macro-mikekppp](https://github.com/mikekppp/singleton-swift-macro-mikekppp) Swift Macro provides an easy way to create [Singletons](https://en.wikipedia.org/wiki/Singleton_pattern) in a Swift package or Xcode project.  Placing a `@Singleton` attribute on your Class, Struct, or Actor will imbue the characteristics of a classic [Swift Singleton](https://developer.apple.com/documentation/swift/managing-a-shared-resource-using-a-singleton) on that object.  In addition, your Class, Struct, or Actor may need additional initialization when first instantiated.  For that reason, this macro also makes a call to a `privateInit()` method from within the "standard Swift Singleton" `private init()` template to allow for one time initialization of your Singleton.  See below for details on how this macro expands.
 
 ## Usage:
 
@@ -31,11 +31,10 @@ class YourClass {
 ```
 
 4. You will need to supply a `privateInit()` method.  The method should be used to implement any first time/one time only initialization for your Class.  Optionally this method may remain empty to satisfy the requirements of this macro.
-5. Now you may call `YourClass.shared` without having to add boilerplate to your singleton classes.
+5. Now you may call `YourClass.shared` without having to add boilerplate to your Singleton classes.
 
 
-
-### The macro can also be applied to Structs:
+## The macro may also be applied to Structs:
 
 ```swift
 import Singleton
@@ -45,7 +44,7 @@ struct YourStruct {
     // struct contents...
 }
 ```
-#### Which will expand to this:
+### Which expands to this:
 
 ```swift
 import Singleton
@@ -61,7 +60,7 @@ struct YourStruct {
 
 
 
-### The macro can also be applied to Actors:
+## As well as Actors:
 
 ```swift
 import Singleton
@@ -71,7 +70,7 @@ actor YourActor {
     // actor contents...
 }
 ```
-#### Which will expand to this:
+### Which will expand to this:
 
 ```swift
 import Singleton

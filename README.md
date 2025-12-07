@@ -35,7 +35,7 @@ class YourClass {
 
 
 
-###The macro can also be applied to Structs:
+### The macro can also be applied to Structs:
 
 ```swift
 import Singleton
@@ -45,7 +45,7 @@ struct YourStruct {
     // struct contents...
 }
 ```
-####Which will expand to this:
+#### Which will expand to this:
 
 ```swift
 import Singleton
@@ -61,7 +61,7 @@ struct YourStruct {
 
 
 
-###The macro can also be applied to Actors:
+### The macro can also be applied to Actors:
 
 ```swift
 import Singleton
@@ -71,7 +71,7 @@ actor YourActor {
     // actor contents...
 }
 ```
-####Which will expand to this:
+#### Which will expand to this:
 
 ```swift
 import Singleton
